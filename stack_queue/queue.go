@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// Go doesn't support generics... Queue<T>, but in Case of Queues it would be nice to have generics
 type Queue struct {
 	slice []int
 }
@@ -21,6 +22,7 @@ func (q *Queue) Dequeue() int {
 	return ret
 }
 
+//this function is just for formatting purposes
 func (q *Queue) String() string {
 	return fmt.Sprint(q.slice)
 }
@@ -28,6 +30,14 @@ func (q *Queue) String() string {
 func main() {
 	var q *Queue = new(Queue)
 	q.Enqueue(123)
+	q.Enqueue(43)
+	q.Enqueue(99)
 	fmt.Println(q)
 	fmt.Println(q.Dequeue())
+	fmt.Println(q)
+	fmt.Println(q.Dequeue())
+	q.Enqueue(101)
+	fmt.Println(q)
+	fmt.Println(q.Dequeue())
+	fmt.Println(q)
 }
